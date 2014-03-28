@@ -1,4 +1,4 @@
-javalab
+Javalab
 =======
 
-Exploring features in Java language
+Exploring features in Java programming language
