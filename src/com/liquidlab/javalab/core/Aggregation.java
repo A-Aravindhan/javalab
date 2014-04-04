@@ -20,17 +20,22 @@ import com.liquidlab.javalab.common.Initializer;
 import com.liquidlab.javalab.common.Person;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author tham
  */
 public class Aggregation {
-    public int getAverageAge() {
+    public int getPersonsWithAgeGT40() {
         List<Person> persons = Initializer.getPersons();
-//        int highestAge =
-//                persons.stream()
-//                        .mapToInt(p -> p.getAge())
-//                        .max();
-        return 0;
+
+        //Create a stream
+        //Map the age with lambda expression
+        //add filter to reduce the result
+        //Collect the final filtered list
+        List<Integer> numberOfPersonsWithGT40 = persons.stream().map(Person::getAge).filter(age -> age > 40).collect(Collectors.toList());
+        System.out.println(numberOfPersonsWithGT40);
+
+        return numberOfPersonsWithGT40.size();
     }
 }
