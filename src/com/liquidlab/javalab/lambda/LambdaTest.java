@@ -25,7 +25,6 @@ import org.junit.Test;
 public class LambdaTest {
 
     @Test
-    @Ignore
     public void testPersonSort() {
         Lambda lambda = new Lambda();
         lambda.sortByOldStyle();
@@ -33,14 +32,12 @@ public class LambdaTest {
     }
 
     @Test
-    @Ignore
     public void testPrintPerson() {
         Lambda lambda = new Lambda();
         lambda.printPersons();
     }
 
     @Test
-    @Ignore
     public void testRemovePerson() {
         Lambda lambda = new Lambda();
         lambda.removePerson();

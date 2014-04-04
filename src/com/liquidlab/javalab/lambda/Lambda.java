@@ -52,13 +52,7 @@ public class Lambda {
         List<Person> persons = Initializer.getPersons();
         System.out.println("Before Sorting: " + persons);
 
-        Collections.sort(persons, new Comparator<Person>() {
-            @Override
-            public int compare(Person p1, Person p2) {
-                return p1.getName().compareTo(p2.getName());
-            }
-        });
-
+        persons.sort((Person p1, Person p2) -> p1.getName().compareTo(p2.getName()));
         System.out.println("Sort done by Lambda: " + persons);
     }
 
