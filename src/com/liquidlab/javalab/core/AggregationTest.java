@@ -14,4 +14,10 @@ public class AggregationTest {
 
         System.out.println(numberOfPersons);
     }
+
+    @Test
+    public void testNumericalStream() {
+        Aggregation aggregation = new Aggregation();
+        aggregation.numericalStream();
+    }
 }
