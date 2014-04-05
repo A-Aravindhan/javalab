@@ -56,49 +56,6 @@ public class MainApplication extends Application {
     }
 
     private Scene getPrimaryScene() {
-        GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER);
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(25, 25, 25, 25));
-
-        renderWidgets(grid);
-
-        return new Scene(grid, 500, 275);
-    }
-
-    private void renderWidgets(GridPane gridPane) {
-        Text title = new Text("Welcome");
-        title.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        gridPane.add(title, 0, 0, 2, 1);
-
-        Label userName = new Label("User Name:");
-        gridPane.add(userName, 0, 1);
-
-        TextField userTextField = new TextField();
-        gridPane.add(userTextField, 1, 1);
-
-        Label pw = new Label("Password:");
-        gridPane.add(pw, 0, 2);
-
-        PasswordField pwBox = new PasswordField();
-        gridPane.add(pwBox, 1, 2);
-
-        Button btn = new Button("Sign in");
-        HBox hbBtn = new HBox(10);
-        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
-        hbBtn.getChildren().add(btn);
-        gridPane.add(hbBtn, 1, 4);
-
-        final Text message = new Text();
-        gridPane.add(message, 1, 6);
-
-        btn.addEventHandler(ActionEvent.ANY, new EventHandler<Event>() {
-            @Override
-            public void handle(Event event) {
-                message.setFill(Color.BROWN);
-                message.setText("Hello " + userTextField.getText());
-            }
-        });
+        return new LoginFx(500, 250).getScene();
     }
 }
