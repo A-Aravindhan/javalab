@@ -23,8 +23,12 @@ package com.liquidlab.javalab.javafx;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ChartApplication extends Application {
@@ -36,11 +40,26 @@ public class ChartApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("JavaFX Chart");
-        primaryStage.setScene(getChartScene());
+        primaryStage.setScene(getScene());
         primaryStage.show();
     }
 
-    private Scene getChartScene() {
+    private Scene getScene() {
+        VBox layout = getLayout();
+        layout.getChildren().add(getPieChart());
+//        layout.getChildren().add(getProgressBar());
+
+        Scene scene = new Scene(layout, 700, 400);
+        return scene;
+    }
+
+    private ProgressIndicator getProgressBar() {
+        ProgressIndicator pi = new ProgressIndicator(0.6);
+        pi.setPrefWidth(10);
+        return pi;
+    }
+
+    private PieChart getPieChart() {
         ObservableList<PieChart.Data> chartData = FXCollections.observableArrayList(
                 new PieChart.Data("Chrome", 40),
                 new PieChart.Data("Firefox", 30),
@@ -48,9 +67,13 @@ public class ChartApplication extends Application {
                 new PieChart.Data("Safari", 10)
         );
 
-        PieChart pieChart = new PieChart(chartData);
+        return new PieChart(chartData);
+    }
 
-        Scene scene = new Scene(pieChart, 500, 300);
-        return scene;
+    private VBox getLayout() {
+        VBox layout = new VBox();
+        layout.setPadding(new Insets(10));
+        layout.setSpacing(10);
+        return layout;
     }
 }
