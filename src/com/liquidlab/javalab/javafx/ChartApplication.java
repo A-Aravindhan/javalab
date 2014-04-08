@@ -49,7 +49,7 @@ public class ChartApplication extends Application {
         layout.getChildren().add(getPieChart());
 //        layout.getChildren().add(getProgressBar());
 
-        Scene scene = new Scene(layout, 700, 400);
+        Scene scene = new Scene(layout, 500, 300);
         return scene;
     }
 
